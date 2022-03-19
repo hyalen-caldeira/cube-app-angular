@@ -20,7 +20,7 @@
 
     <a
       class="badge badge-warning"
-      routerLink="/tutorials/{{ currentUser.name }}"
+      routerLink="/users/{{ currentUser.name }}"
     >
       Edit
     </a>
@@ -83,19 +83,19 @@
 
     <button
       class="badge badge-primary mr-2"
-      routerLink="/tutorials"
+      routerLink="/users"
     >
       Cancel
     </button>
     
-    <button class="badge badge-danger mr-2" (click)="deleteTutorial()">
+    <button class="badge badge-danger mr-2" (click)="deleteUser()">
       Delete
     </button>
 
     <button
       type="submit"
       class="badge badge-success mb-2"
-      (click)="updateTutorial()"
+      (click)="updateUser()"
     >
       Update
     </button>

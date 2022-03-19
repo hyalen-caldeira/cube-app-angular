@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TutorialService } from 'src/app/services/tutorial.service';
+import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 
 @Component({
-  selector: 'app-tutorial-details',
-  templateUrl: './tutorial-details.component.html',
-  styleUrls: ['./tutorial-details.component.css']
+  selector: 'app-user-details',
+  templateUrl: './user-details.component.html',
+  styleUrls: ['./user-details.component.css']
 })
-export class TutorialDetailsComponent implements OnInit {
+export class UserDetailsComponent implements OnInit {
 
   @Input() viewMode = false;
 
@@ -21,19 +21,19 @@ export class TutorialDetailsComponent implements OnInit {
   message = '';
 
   constructor(
-    private tutorialService: TutorialService,
+    private userService: UserService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
     if (!this.viewMode) {
       this.message = '';
-      this.getTutorial(this.route.snapshot.params["name"]);
+      this.getUser(this.route.snapshot.params["name"]);
     }
   }
 
-  getTutorial(id: string): void {
-    this.tutorialService.get(id)
+  getUser(id: string): void {
+    this.userService.get(id)
       .subscribe({
         next: (data) => {
           this.currentUser = data;
@@ -52,7 +52,7 @@ export class TutorialDetailsComponent implements OnInit {
 
     this.message = '';
 
-    this.tutorialService.update(this.currentUser.id, data)
+    this.userService.update(this.currentUser.id, data)
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -64,28 +64,27 @@ export class TutorialDetailsComponent implements OnInit {
       });
   }
 
-  updateTutorial(): void {
+  updateUser(): void {
     this.message = '';
 
-    this.tutorialService.update(this.currentUser.id, this.currentUser)
+    this.userService.update(this.currentUser.id, this.currentUser)
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.message = res.message ? res.message : 'This tutorial was updated successfully!';
+          this.message = res.message ? res.message : 'This user was updated successfully!';
         },
         error: (e) => console.error(e)
       });
   }
 
-  deleteTutorial(): void {
-    this.tutorialService.delete(this.currentUser.name)
+  deleteUser(): void {
+    this.userService.delete(this.currentUser.name)
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.router.navigate(['/tutorials']);
+          this.router.navigate(['/users']);
         },
         error: (e) => console.error(e)
       });
   }
-
 }

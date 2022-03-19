@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
-import { TutorialService } from 'src/app/services/tutorial.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-add-tutorial',
-  templateUrl: './add-tutorial.component.html',
-  styleUrls: ['./add-tutorial.component.css']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
 })
-export class AddTutorialComponent implements OnInit {
+export class AddUserComponent implements OnInit {
 
   user: User = {
     id: '',
@@ -18,12 +18,12 @@ export class AddTutorialComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
-  saveTutorial(): void {
+  saveUser(): void {
     const data = {
       id: this.user.id,
       name: this.user.name,
@@ -31,7 +31,7 @@ export class AddTutorialComponent implements OnInit {
       email: this.user.email
     };
 
-    this.tutorialService.create(data)
+    this.userService.create(data)
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -41,7 +41,7 @@ export class AddTutorialComponent implements OnInit {
       });
   }
 
-  newTutorial(): void {
+  newUser(): void {
     this.submitted = false;
     
     this.user = {

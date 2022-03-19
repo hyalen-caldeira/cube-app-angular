@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
-import { TutorialService } from 'src/app/services/tutorial.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-users-list',
@@ -14,14 +14,14 @@ export class UsersListComponent implements OnInit {
   currentIndex = -1;
   name = '';
 
-  constructor(private tutorialService: TutorialService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.retrieveTutorials();
+    this.retrieveUsers();
   }
 
-  retrieveTutorials(): void {
-    this.tutorialService.getAll()
+  retrieveUsers(): void {
+    this.userService.getAll()
       .subscribe({
         next: (data) => {
           this.users = data;
@@ -32,18 +32,18 @@ export class UsersListComponent implements OnInit {
   }
 
   refreshList(): void {
-    this.retrieveTutorials();
+    this.retrieveUsers();
     this.currentUser = {};
     this.currentIndex = -1;
   }
 
-  setActiveTutorial(user: User, index: number): void {
+  setActiveUser(user: User, index: number): void {
     this.currentUser = user;
     this.currentIndex = index;
   }
 
-  removeAllTutorials(): void {
-    this.tutorialService.deleteAll()
+  removeAllUsers(): void {
+    this.userService.deleteAll()
       .subscribe({
         next: (res) => {
           console.log(res);
@@ -57,7 +57,7 @@ export class UsersListComponent implements OnInit {
     this.currentUser = {};
     this.currentIndex = -1;
 
-    this.tutorialService.findByName(this.name)
+    this.userService.findByName(this.name)
       .subscribe({
         next: (data) => {
           // this.users = data;
