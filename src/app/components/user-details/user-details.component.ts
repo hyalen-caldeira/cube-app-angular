@@ -65,13 +65,13 @@ export class UserDetailsComponent implements OnInit {
   }
 
   updateUser(): void {
-    this.message = '';
+    this.message = 'This user was updated successfully!';
 
-    this.userService.update(this.currentUser.id, this.currentUser)
+    this.userService.update(this.currentUser.name, this.currentUser)
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.message = res.message ? res.message : 'This user was updated successfully!';
+          // this.message = res.message ? res.message : 'This user was updated successfully!';
         },
         error: (e) => console.error(e)
       });

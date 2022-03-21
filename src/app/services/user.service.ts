@@ -31,7 +31,12 @@ export class UserService {
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    const headers = new HttpHeaders()
+      .set('content-type', 'application/vnd.spring-template.user.v1+json')
+      .set('accept', 'application/vnd.spring-template.user.v1+json')
+      .set('Access-Control-Allow-Origin', '*');
+
+    return this.http.put(`${baseUrl}/${id}`, data, {headers});
   }
 
   delete(name: any): Observable<any> {
