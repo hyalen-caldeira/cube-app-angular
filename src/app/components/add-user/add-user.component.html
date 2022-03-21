@@ -48,11 +48,13 @@
       </div>
 
       <button (click)="saveUser()" class="btn btn-success">Add User</button>
+      <button class="btn btn-danger" style="margin-left: 10px" routerLink="/users">Cancel</button>
     </div>
 
     <div *ngIf="submitted">
       <h4>User was added successfully!</h4>
       <button class="btn btn-success" (click)="newUser()">Add More</button>
+      <button class="btn btn-danger" style="margin-left: 10px" routerLink="/users">Cancel</button>
     </div>
   </div>
 </div>
