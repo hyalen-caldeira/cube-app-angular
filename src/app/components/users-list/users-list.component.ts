@@ -60,8 +60,8 @@ export class UsersListComponent implements OnInit {
     this.userService.findByName(this.name)
       .subscribe({
         next: (data) => {
-          // this.users = data;
-          this.users?.push(data) // = data;
+          this.users = data;
+          // this.users?.push(data) // = data;
           console.log(data);
         },
         error: (e) => console.error(e)

@@ -52,7 +52,7 @@ export class UserService {
     return this.http.delete(baseUrl);
   }
 
-  findByName(name: any): Observable<User> {
-    return this.http.get<User>(`${baseUrl}/${name}`);
+  findByName(name: any): Observable<User[]> {
+    return this.http.get<User[]>(`${baseUrl}/${name}`);
   }
 }
