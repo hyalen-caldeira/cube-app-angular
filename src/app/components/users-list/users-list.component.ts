@@ -67,4 +67,19 @@ export class UsersListComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
+
+  refresh() : void {
+    this.currentUser = {};
+    this.currentIndex = -1;
+
+    this.userService.findByName("")
+      .subscribe({
+        next: (data) => {
+          this.users = data;
+          // this.users?.push(data) // = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+  }
 }
