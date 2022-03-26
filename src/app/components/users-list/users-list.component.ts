@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HealthTip } from 'src/app/models/health-tip';
 import { User } from 'src/app/models/user.model';
+import { HealthTipsService } from 'src/app/services/health-tips.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,12 +11,16 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersListComponent implements OnInit {
 
+  // TODO - Remove HealthTips
+  healthTips?: HealthTip[];
+
   users?: User[];
   currentUser: User = {};
   currentIndex = -1;
   name = '';
 
-  constructor(private userService: UserService) { }
+  // TODO - Remove HealthTipsService
+  constructor(private userService: UserService, private healthTipsService : HealthTipsService) { }
 
   ngOnInit(): void {
     this.retrieveUsers();
@@ -77,6 +83,18 @@ export class UsersListComponent implements OnInit {
         next: (data) => {
           this.users = data;
           // this.users?.push(data) // = data;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
+  // TODO - Move the following method
+  getHealthTips() : void {
+    this.healthTipsService.getHealthTips()
+      .subscribe({
+        next: (data) => {
+          this.healthTips = data;
           console.log(data);
         },
         error: (e) => console.error(e)
