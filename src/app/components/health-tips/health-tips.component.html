@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <h4>Users List</h4>
+    <h4>Health Tips</h4>
     <ul class="list-group">
       <li
         class="list-group-item"
@@ -8,9 +8,9 @@
         {{ tip.tip }}
       </li>
     </ul>
+</div>
 
-    <div>
-        <button class="m-3 btn btn-success" (click)="getHealthTips()">Get More Tips</button>
-        <button class="m-3 btn btn-danger" style="margin-left: 10px" routerLink="/users">Cancel</button>
-      </div>
-  </div>
+<div style="text-align: center; margin-top: 5px; padding: 13px 0 10px 0;" class="col-md-6">
+    <button class="btn btn-success" (click)="getHealthTips()">Get More Tips</button>
+    <button class="btn btn-danger" style="margin-left: 10px" routerLink="/users">Cancel</button>
+</div>
