@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+// TODO - delete the following lines
+import { HealthTipsService } from 'src/app/services/health-tips.service';
 import { HealthTip } from 'src/app/models/health-tip';
 import { User } from 'src/app/models/user.model';
-import { HealthTipsService } from 'src/app/services/health-tips.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({

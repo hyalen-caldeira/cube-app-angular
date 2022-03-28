@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
+import { HealthTipsComponent } from './components/health-tips/health-tips.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddUserComponent,
     UserDetailsComponent,
-    UsersListComponent
+    UsersListComponent,
+    HealthTipsComponent
   ],
   imports: [
     BrowserModule,
