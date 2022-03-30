@@ -14,4 +14,8 @@ export class HealthTipsService {
   getHealthTips(): Observable<HealthTip[]> {
     return this.http.get<HealthTip[]>(this.baseUrl);
   }
+
+  getHealthTipsById(id: any): Observable<HealthTip[]> {
+    return this.http.get<HealthTip[]>(`${this.baseUrl}/${id}`);
+  }
 }

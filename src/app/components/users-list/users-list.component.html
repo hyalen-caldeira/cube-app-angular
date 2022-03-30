@@ -36,10 +36,17 @@
       Refresh
     </button>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-3">
     <app-user-details
       [viewMode]="true"
       [currentUser]="currentUser"
-    ></app-user-details>
+    >
+    </app-user-details>
+  </div>
+  <div class="col-md-6">
+    <app-health-tips
+      [viewMode]="true"
+      [currentUser]="currentUser">
+    </app-health-tips>
   </div>
 </div>

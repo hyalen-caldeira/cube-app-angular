@@ -9,7 +9,6 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-
   @Input() viewMode = false;
 
   @Input() currentUser: User = {
