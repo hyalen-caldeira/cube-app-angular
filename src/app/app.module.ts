@@ -10,6 +10,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { HealthTipsComponent } from './components/health-tips/health-tips.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HealthTipsPipePipe } from './shared/health-tips-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddUserComponent,
     UserDetailsComponent,
     UsersListComponent,
-    HealthTipsComponent
+    HealthTipsComponent,
+    HealthTipsPipePipe
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,8 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./health-tips.component.css']
 })
 export class HealthTipsComponent implements OnInit {
-  healthTips?: HealthTip[];
+  healthTips: HealthTip[] = [];
+  
   @Input() viewMode = false;
 
   @Input() currentUser: User = {
@@ -19,6 +20,7 @@ export class HealthTipsComponent implements OnInit {
     email: ''
   };
 
+  // constructor(private healthTipsService : HealthTipsService, private filter: HealthTipsPipePipe) { }
   constructor(private healthTipsService : HealthTipsService) { }
 
   ngOnInit(): void {

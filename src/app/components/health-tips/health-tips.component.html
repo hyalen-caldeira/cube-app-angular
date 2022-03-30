@@ -16,7 +16,7 @@
     <ul class="list-group">
       <li
         class="list-group-item"
-        *ngFor="let tip of healthTips"
+        *ngFor="let tip of healthTips | healthTipsPipe : currentUser"
       >
         {{ tip.tip }}
       </li>
