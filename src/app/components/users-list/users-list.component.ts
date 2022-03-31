@@ -73,6 +73,10 @@ export class UsersListComponent implements OnInit {
       )
   }
 
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+   
   refresh() : void {
     this.currentUser = {};
     this.currentIndex = -1;
