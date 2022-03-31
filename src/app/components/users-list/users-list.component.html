@@ -21,7 +21,10 @@
 
   <div class="col-12 col-md-6 col-lg-4">
     <h4 class="asdasdf">Users List</h4>
-    <ul class="list-group">
+    <div *ngIf="errorAPI">
+    <p class="text-danger">Resource is not found</p>
+  </div>
+    <ul class="list-group" *ngIf="!errorAPI">
       <li
         class="list-group-item"
         *ngFor="let user of users; let i = index"

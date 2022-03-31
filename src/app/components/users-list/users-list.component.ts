@@ -12,6 +12,7 @@ export class UsersListComponent implements OnInit {
   currentUser: User = {};
   currentIndex = -1;
   name = '';
+  errorAPI= false;
 
   // TODO - Remove HealthTipsService
   constructor(private userService: UserService) { }
@@ -58,14 +59,18 @@ export class UsersListComponent implements OnInit {
     this.currentIndex = -1;
 
     this.userService.findByName(this.name)
-      .subscribe({
-        next: (data) => {
+      .subscribe(
+       (data) => {
           this.users = data;
+          this.errorAPI = false;
           // this.users?.push(data) // = data;
-          console.log(data);
+          // console.log(data);
         },
-        error: (e) => console.error(e)
-      });
+        (error) =>{
+          this.errorAPI = true;
+          console.log('Error state from API')
+      }
+      )
   }
 
   refresh() : void {
