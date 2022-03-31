@@ -34,6 +34,7 @@ export class HealthTipsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.healthTips = data;
+          // this.healthTips.push({id: 0, tip: 'There is no Health Tip for the Selected User', userId: 0});
           console.log(data);
         },
         error: (e) => console.error(e)

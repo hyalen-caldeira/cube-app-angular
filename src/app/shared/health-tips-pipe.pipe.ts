@@ -7,12 +7,14 @@ import { HealthTip } from '../models/health-tip';
 export class HealthTipsPipePipe implements PipeTransform {
 
   transform(healthTips: any[], value : any): any {
-    // if (!healthTips || !filter)
-    //   return healthTips;
+    
+    // var containsTip = healthTips.filter(healthTip => value.id == healthTip.userId);
+    // const filteredValues = (containsTip.length == 0) ? 
+    //   {id: 0, tip: 'There is no Health Tip for the Selected User', userId: 0} : containsTip;
 
-  // filter items array, items which match and return true will be
-  // kept, false will be filtered out
-  // return healthTips.filter(healthTip => healthTip.userId == 8);
-  return healthTips.filter(healthTip => value.id == healthTip.userId);
+    // return filteredValues;
+
+
+    return healthTips.filter(healthTip => value.id == healthTip.userId);
   }
 }

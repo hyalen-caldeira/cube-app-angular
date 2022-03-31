@@ -1,15 +1,3 @@
-<!-- <div class="col-md-6">
-    <h4>Health Tips</h4>
-    <ul class="list-group">
-      <li
-        class="list-group-item"
-        *ngFor="let tip of healthTips"
-      >
-        {{ tip.tip }}
-      </li>
-    </ul>
-</div> -->
-
 <div *ngIf="viewMode">
   <div *ngIf="currentUser.id">
     <h4>Health Tips</h4>
@@ -21,11 +9,11 @@
         {{ tip.tip }}
       </li>
     </ul>
-    <!-- <div style="text-align: center; margin-top: 5px; padding: 13px 0 10px 0;" class="">
-      <button class="btn btn-success" (click)="getHealthTips()">Get More Tips</button>
-      <button class="btn btn-danger" style="margin-left: 10px" routerLink="/users">Cancel</button>
-    </div> -->
   </div>
+
+  <!-- <div *ngIf="tip.tip == ''">
+    No Health Tips for the Selected User
+  </div> -->
 
   <div *ngIf="!currentUser">
     <br />
