@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular13Crud": {
+    "cupe-app-bootstrap": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Angular13Crud",
+            "outputPath": "dist/cupe-app-bootstrap",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Angular13Crud:build:production"
+              "browserTarget": "cupe-app-bootstrap:build:production"
             },
             "development": {
-              "browserTarget": "Angular13Crud:build:development"
+              "browserTarget": "cupe-app-bootstrap:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular13Crud:build"
+            "browserTarget": "cupe-app-bootstrap:build"
           }
         },
         "test": {
@@ -103,5 +103,5 @@
       }
     }
   },
-  "defaultProject": "Angular13Crud"
+  "defaultProject": "cupe-app-bootstrap"
 }

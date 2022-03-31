@@ -1,5 +1,5 @@
 <div class="list row">
-  <div class="col-md-8">
+  <div class="col-12">
     <div class="input-group mb-3">
       <input
         type="text"
@@ -9,7 +9,7 @@
       />
       <div class="input-group-append">
         <button
-          class="btn btn-outline-secondary"
+          class="btn btn-info"
           type="button"
           (click)="searchName()"
         >
@@ -18,43 +18,36 @@
       </div>
     </div>
   </div>
-  <tr>
-    <td>
-      <div class="col-md-6">
-        <h4 class="asdasdf">Users List</h4>
-        <ul class="list-group">
-          <li
-            class="list-group-item"
-            *ngFor="let user of users; let i = index"
-            [class.active]="i == currentIndex"
-            (click)="setActiveUser(user, i)"
-          >
-            {{ user.name }}
-          </li>
-        </ul>
-    
-        <!-- TODO - Uncomment the following line -->
-        <button class="m-3 btn btn-danger" (click)="refresh()">
-          Refresh
-        </button>
-      </div>
-    </td>
-    <td>
-      <div class="col-md-3">
-        <app-user-details
-          [viewMode]="true"
-          [currentUser]="currentUser"
-        >
-        </app-user-details>
-      </div>    
-    </td>
-    <td>
-      <div class="col-md-6">
-        <app-health-tips
-          [viewMode]="true"
-          [currentUser]="currentUser">
-        </app-health-tips>
-      </div>
-    </td>
-  </tr>
+
+  <div class="col-12 col-md-6 col-lg-4">
+    <h4 class="asdasdf">Users List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let user of users; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveUser(user, i)"
+      >
+        {{ user.name }}
+      </li>
+    </ul>
+
+    <!-- TODO - Uncomment the following line -->
+    <button class="m-3 btn btn-primary" (click)="refresh()">
+      Refresh
+    </button>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4">
+    <app-user-details
+      [viewMode]="true"
+      [currentUser]="currentUser"
+    >
+    </app-user-details>
+  </div>    
+  <div class="col-12 col-md-6 col-lg-4">
+    <app-health-tips
+      [viewMode]="true"
+      [currentUser]="currentUser">
+    </app-health-tips>
+  </div>
 </div>
