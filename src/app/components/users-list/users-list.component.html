@@ -48,6 +48,7 @@
     <app-user-details
       [viewMode]="true"
       [currentUser]="currentUser"
+      (updatedItem)="updateList($event)"
     >
     </app-user-details>
   </div>    

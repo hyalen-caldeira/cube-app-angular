@@ -52,3 +52,8 @@ describe('UserService', () => {
     expect(req.request.headers).toEqual(headers);
   });
 });
+
+// 2 components talk to each other, child components, input/output property, not related
+// Testing components childrens
+// Router states - pass info from one component to another
+// input/output parent --> child and vice versa

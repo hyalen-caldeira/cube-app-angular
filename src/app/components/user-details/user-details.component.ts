@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
@@ -10,12 +10,13 @@ import { User } from 'src/app/models/user.model';
 })
 export class UserDetailsComponent implements OnInit {
   @Input() viewMode = false;
-
   @Input() currentUser: User = {
     name: '',
     address: '',
     email: ''
   };
+  @Output() updatedItem = new EventEmitter<User>();
+  @Output() shouldRefresh = new EventEmitter<boolean>();
   
   message = '';
 
@@ -42,29 +43,31 @@ export class UserDetailsComponent implements OnInit {
       });
   }
 
-  updatePublished(status: boolean): void {
-    const data = {
-      title: this.currentUser.name,
-      address: this.currentUser.address,
-      published: status
-    };
+  // updatePublished(status: boolean): void {
+  //   const data = {
+  //     title: this.currentUser.name,
+  //     address: this.currentUser.address,
+  //     published: status
+  //   };
 
-    this.message = '';
+  //   this.message = '';
 
-    this.userService.update(this.currentUser.id, data)
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          // TODO
-          // this.currentUser.email = status;
-          this.message = res.message ? res.message : 'The status was updated successfully!';
-        },
-        error: (e) => console.error(e)
-      });
-  }
+  //   this.userService.update(this.currentUser.id, data)
+  //     .subscribe({
+  //       next: (res) => {
+  //         console.log(res);
+  //         // TODO
+  //         // this.currentUser.email = status;
+  //         this.message = res.message ? res.message : 'The status was updated successfully!';
+  //       },
+  //       error: (e) => console.error(e)
+  //     });
+  // }
 
   updateUser(): void {
-    this.message = 'This user was updated successfully!';
+    this.message = 'The user was updated successfully!';
+    this.shouldRefresh.emit(true);
+    this.updatedItem.emit(this.currentUser);
 
     this.userService.update(this.currentUser.name, this.currentUser)
       .subscribe({

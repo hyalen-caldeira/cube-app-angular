@@ -91,4 +91,17 @@ export class UsersListComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
+
+  updateList(user : User) : void {
+    console.log("Im here ...")
+    // let updatedItem = this.users?.find(this.findIndexToUpdate, user.id);
+    // let index = this.users?.indexOf(updatedItem);
+
+
+    // this.users?[index] = user;
+  }
+
+  // findIndexToUpdate(newItem) { 
+  //   return newItem.id === this;
+  // }
 }
